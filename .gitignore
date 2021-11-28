@@ -1,0 +1,6 @@
+.vscode/
+build_automake/
+*.tmp
+*.pyc
+build/
+dataset/
