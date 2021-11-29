@@ -105,10 +105,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls='lsd'
-alias c='highlight -O ansi --force'
+#alias ls='lsd'
+alias ls='exa --icons --group-directories-first --git --git-ignore'
 alias jenkins='gcloud compute ssh jenkins --ssh-flag="-L 8080:localhost:8080"'
 alias dockerip="docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
+alias cd='z'
+alias cat='bat'
+alias grep='rg'
 
 alias bdd='docker run -p 5432:5432/tcp -it --rm --name exr_bdd exr_bdd'
 alias bdd_debug='docker exec -it exr_bdd psql exr_database'
@@ -132,3 +135,10 @@ if [ -f '/home/furlings/Téléchargements/google-cloud-sdk-343.0.0-linux-x86_64/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/furlings/Téléchargements/google-cloud-sdk-343.0.0-linux-x86_64/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/furlings/Téléchargements/google-cloud-sdk-343.0.0-linux-x86_64/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+eval "$(zoxide init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
