@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #alias ls='lsd'
-alias ls='exa --icons --group-directories-first --git --git-ignore'
+alias ls='exa --icons --group-directories-first --git'
 alias jenkins='gcloud compute ssh jenkins --ssh-flag="-L 8080:localhost:8080"'
 alias dockerip="docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 alias cd='z'

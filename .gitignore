@@ -1,4 +1,5 @@
 .vscode/
+.idea/
 build_automake/
 *.tmp
 *.pyc
