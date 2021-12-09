@@ -2,7 +2,7 @@
 [includeIf "gitdir:~/git/perso/"]
   path = ~/git/perso/.gitconfig.perso
 [includeIf "gitdir:~/git/work/"]
-  path = ~/git/exxact/.gitconfig.work
+  path = ~/git/work/.gitconfig.work
 [color]
   # Enable colors in color-supporting terminals
   ui = auto
