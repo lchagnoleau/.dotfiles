@@ -1,0 +1,6 @@
+[user]
+  name = Loïc Chagnoleau
+  email = lchagnoleau@pm.me
+
+[core]
+sshCommand = "ssh -i ~/.ssh/github"
