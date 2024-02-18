@@ -1,0 +1,77 @@
+live_config_reload = true
+
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+
+[colors.cursor]
+cursor = "0xb9b9b9"
+text = "0x101010"
+
+[colors.normal]
+black = "0x1f1f1f"
+red = "0xf71118"
+green = "0x2cc55d"
+yellow = "0xecb90f"
+blue = "0x2a84d2"
+magenta = "0x4e59b7"
+cyan = "0x0f80d5"
+white = "0xd6dae4"
+
+[colors.bright]
+black = "0xd6dae4"
+red = "0xde342e"
+green = "0x1dd260"
+yellow = "0xf2bd09"
+blue = "0x0f80d5"
+magenta = "0x524fb9"
+cyan = "0x0f7cda"
+white = "0xffffff"
+
+[colors.primary]
+background = "0x131313"
+foreground = "0xd6dae4"
+
+[cursor]
+blink_interval = 500
+blink_timeout = 5
+unfocused_hollow = false
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[font]
+size = 12
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[mouse]
+hide_when_typing = true
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[shell]
+program = "/bin/zsh"
+
+[window]
+decorations = "full"
+dynamic_title = true
+startup_mode = "Maximized"
+
+[window.padding]
+x = 4
+y = 4
+
