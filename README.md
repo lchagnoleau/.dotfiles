@@ -33,3 +33,7 @@ then use GNU stow to create symlinks
 $ stow .
 ```
 
+## Links
+
+Tmux: https://github.com/gpakosz/.tmux
+

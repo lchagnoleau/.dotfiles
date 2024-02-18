@@ -64,7 +64,8 @@ action = "PasteSelection"
 mouse = "Middle"
 
 [shell]
-program = "/bin/zsh"
+program = "/bin/tmux"
+args = ["new-session", "-A", "-D", "-s", "main"]
 
 [window]
 decorations = "full"
