@@ -15,7 +15,7 @@
   st = status --short
   br = branch
   # Display tree-like log, because default log is a pain…
-  lg = log --graph -n 40 --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+  lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
   # Useful when you have to update your last commit
   # with staged files without editing the commit message.
   oops = commit --amend --no-edit

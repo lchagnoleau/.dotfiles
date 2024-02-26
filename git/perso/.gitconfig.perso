@@ -3,4 +3,4 @@
   email = lchagnoleau@pm.me
 
 [core]
-sshCommand = "ssh -i ~/.ssh/github"
+  sshCommand = "ssh -i ~/.ssh/github"
