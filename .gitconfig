@@ -21,12 +21,6 @@
   oops = commit --amend --no-edit
   # Ensure that force-pushing won't lose someone else's work (only mine).
   yolo = push --force-with-lease
-  # Rebase won’t trigger hooks on each "replayed" commit.
-  # This is an ugly hack that will replay each commit during rebase with the
-  # standard `commit` command which will trigger hooks.
-  rebase-with-hooks = rebase -x 'git reset --soft HEAD~1 && git commit -C HEAD@{1}'
-  # List local commits that were not pushed to remote repository
-  review-local = "!git lg @{push}.."
   # Edit last commit message
   reword = commit --amend
   # Undo last commit but keep changed files in stage
@@ -36,23 +30,9 @@
   # Remove file(s) from Git but not from disk
   untrack = rm --cache --
 [core]
-  # Don't paginate output by default
   pager = cat
   # Global ignore file (not shared)
   excludesfile = ~/.gitignore
-  # Global shared hooks directory
-  # hooksPath = ~/.githooks
-  #
-  # Out of luck: on Windows w/o msysGit? You may have Notepad++…
-  # editor = 'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
-  # 
-  # If you want to use Sublime Text 2's subl wrapper:
-  # editor = subl -w
-  # 
-  # Sublime Text 3 on Windows:
-  # editor = 'c:/Program Files/Sublime Text 3/subl.exe' -w
-  #
-  # Don't consider trailing space change as a cause for merge conflicts
   editor = vim
   whitespace = -trailing-space
 [diff]
@@ -68,9 +48,6 @@
   tool = vscode
 [difftool "vscode"]
   cmd = code --wait --diff $LOCAL $REMOTE
-[fetch]
-  # Auto-fetch submodule changes (sadly, won't auto-update)
-  recurseSubmodules = on-demand
 [grep]
   break = true
   heading = true
@@ -86,19 +63,10 @@
   # (because there is no dedicated `reflog` section available)
   decorate = false
 [merge]
-  # Display common-ancestor blocks in conflict hunks
-  # conflictStyle = diff3
+  conflictStyle = diff3
   # Disable fast-forward merges as default merge strategy.
   # Force explicit call of `git merge --ff …`.
   ff = false
-  # Custom/dedicated merge drive for npm lock files (`package-lock.json`).
-  # Also works with Yarn.
-  # Use Git attributes to set targeted files (located at `~/.config/git/attributes``
-  # when installed with npm).
-  # See https://www.npmjs.com/package/npm-merge-driver
-  # [merge "npm-merge-driver"]
-  # name = automatically merge npm lockfiles
-  # driver = npx npm-merge-driver merge %A %O %B %P
 [mergetool]
   # Clean up backup files created by merge tools on tool exit
   keepBackup = false
@@ -114,20 +82,13 @@
   # See https://github.com/so-fancy/diff-so-fancy
   # show = diff-so-fancy | less --tabs=4 -RFX
 [pull]
-  # This is GREAT… when you know what you're doing and are careful
-  # not to pull --no-rebase over a local line containing a true merge.
-  # rebase = true
-  # This option, which does away with the one gotcha of
-  # auto-rebasing on pulls, is only available from 1.8.5 onwards.
-  # rebase = preserve
-  # WARNING! This option, which is the latest variation, is only
-  # available from 2.18 onwards.
   rebase = merges
 [push]
   # Default push should only push the current branch to its push target, regardless of its remote name
   default = upstream
   # When pushing, also push tags whose commit-ishs are now reachable upstream
   followTags = true
+  autoSetupRemote = true
 # [rebase]
   # Rebase advanced usage.
   # Automagically reorder and prefix your commands while doing an interactive
