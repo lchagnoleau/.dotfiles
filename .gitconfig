@@ -29,6 +29,8 @@
   unstage = reset --
   # Remove file(s) from Git but not from disk
   untrack = rm --cache --
+  # Full cleaning of the workspace
+  full-clean = clean -ffdx
 [core]
   pager = cat
   # Global ignore file (not shared)
@@ -45,9 +47,11 @@
   # Display submodule-related information (commit listings)
   submodule = log
   # Use VSCode as default diff tool when running `git diff-tool`
-  tool = vscode
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+  tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
 [grep]
   break = true
   heading = true
@@ -56,7 +60,7 @@
   extendedRegexp = true
 [log]
   # Use abbrev SHAs whenever possible/relevant instead of full 40 chars
-  abbrevCommit = true
+  abbrevCommit = false
   # Automatically --follow when given a single path
   follow = true
   # Disable decorate for reflog
@@ -121,3 +125,5 @@
   prereleaseSuffix = .beta
   prereleaseSuffix = -rc
   prereleaseSuffix = .rc
+[user]
+	name = Loïc Chagnoleau
