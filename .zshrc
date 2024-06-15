@@ -35,10 +35,15 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
 # Aliases
 alias ls='lsd'
-alias ll='ls -l'
-alias l='ls -la'
+alias l='lsd --almost-all --long'
+alias llm='lsd --timesort --long'
+alias lS='lsd --oneline --classic'
+alias lt='lsd --tree --depth=2'
 
 # Fzf
 source <(fzf --zsh)
