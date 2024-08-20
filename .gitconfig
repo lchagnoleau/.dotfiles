@@ -1,122 +1,61 @@
-
 [includeIf "gitdir:~/git/perso/"]
   path = ~/git/perso/.gitconfig.perso
 [includeIf "gitdir:~/git/work/"]
   path = ~/git/work/.gitconfig.work
 [color]
-  # Enable colors in color-supporting terminals
   ui = auto
 [alias]
-  # List available aliases
-  aliases = !git config --get-regexp alias | sed -re 's/alias\\.(\\S*)\\s(.*)$/\\1 = \\2/g'
-  # Command shortcuts
+  aliases = config --get-regexp ^alias
   ci = commit
   co = checkout
   st = status --short
   br = branch
-  # Display tree-like log, because default log is a pain…
   lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
-  # Useful when you have to update your last commit
-  # with staged files without editing the commit message.
   oops = commit --amend --no-edit
-  # Ensure that force-pushing won't lose someone else's work (only mine).
   yolo = push --force-with-lease
-  # Edit last commit message
   reword = commit --amend
-  # Undo last commit but keep changed files in stage
-  uncommit = reset --soft HEAD~1
-  # unstage file
   unstage = reset --
-  # Remove file(s) from Git but not from disk
   untrack = rm --cache --
-  # Full cleaning of the workspace
   full-clean = clean -ffdx
 [core]
-  pager = cat
-  # Global ignore file (not shared)
+  pager = delta
   excludesfile = ~/.gitignore
   editor = vim
   whitespace = -trailing-space
 [diff]
-  # Use better, descriptive initials (c, i, w) instead of a/b.
   mnemonicPrefix = true
-  # Show renames/moves as such
   renames = true
-  # When using --word-diff, assume --word-diff-regex=.
   wordRegex = .
-  # Display submodule-related information (commit listings)
   submodule = log
-  # Use VSCode as default diff tool when running `git diff-tool`
-  tool = meld
-[difftool]
-    prompt = false
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+  colorMoved = default
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+[delta]
+  navigate = true    # use n and N to move between diff sections
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
 [grep]
   break = true
   heading = true
   lineNumber = true
-  # Consider most regexes to be ERE
   extendedRegexp = true
 [log]
-  # Use abbrev SHAs whenever possible/relevant instead of full 40 chars
-  abbrevCommit = false
-  # Automatically --follow when given a single path
+  abbrevCommit = true
   follow = true
-  # Disable decorate for reflog
-  # (because there is no dedicated `reflog` section available)
   decorate = false
-[merge]
-  conflictStyle = diff3
-  # Disable fast-forward merges as default merge strategy.
-  # Force explicit call of `git merge --ff …`.
   ff = false
-[mergetool]
-  # Clean up backup files created by merge tools on tool exit
-  keepBackup = false
-  # Clean up temp files created by merge tools on tool exit
-  keepTemporaries = false
-  # Put the temp files in a dedicated dir anyway
-  writeToTemp = true
-  # Auto-accept file prompts when launching merge tools
-  prompt = false
-# [page]
-  # Use custom pager to get an better log on terminal.
-  # As this is an external tool it has to be installed.
-  # See https://github.com/so-fancy/diff-so-fancy
-  # show = diff-so-fancy | less --tabs=4 -RFX
 [pull]
   rebase = merges
 [push]
-  # Default push should only push the current branch to its push target, regardless of its remote name
-  # default = upstream
-  # When pushing, also push tags whose commit-ishs are now reachable upstream
   followTags = true
-  # autoSetupRemote = true
-# [rebase]
-  # Rebase advanced usage.
-  # Automagically reorder and prefix your commands while doing an interactive
-  # rebase. This has to be used with `--fixup` and/or `--squash` options for
-  # `git commit`.
-  # autoSquash = true
-  # Automatically stash current WD and stage when running rebase
-  # then you won't have to manually `git stash push` and `git stash pop`
-  # after and before your rebase.
-  # autoStash = true
-# [rerere]
-  # If, like me, you like rerere, uncomment these
-  # autoupdate = true
-  # enabled = true
 [status]
-  # Display submodule rev change summaries in status
   submoduleSummary = true
-  # Recursively traverse untracked directories to display all contents
   showUntrackedFiles = all
 [color "branch"]
-  # Blue on black is hard to read in git branch -vv: use cyan instead
   upstream = cyan
 [tag]
-  # Sort tags as version numbers whenever applicable, so 1.10.2 is AFTER 1.2.0.
   sort = version:refname
 [versionsort]
   prereleaseSuffix = -pre
@@ -126,9 +65,9 @@
   prereleaseSuffix = -rc
   prereleaseSuffix = .rc
 [user]
-	name = Loïc Chagnoleau
+  name = Loïc Chagnoleau
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
