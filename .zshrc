@@ -112,6 +112,7 @@ source $ZSH/oh-my-zsh.sh
 alias ls='lsd'
 alias v='nvim'
 alias f='nvim $(fzf -m --preview="bat --color=always {}")'
+alias nproc="sysctl -n hw.physicalcpu"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
