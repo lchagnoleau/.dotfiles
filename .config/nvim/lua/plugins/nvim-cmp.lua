@@ -44,6 +44,7 @@ return {
       },
 
       sources = cmp.config.sources({
+        { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "luasnip" },
         { name = "buffer" },
@@ -57,6 +58,7 @@ return {
         format = lspkind.cmp_format({
           mode = "symbol_text",
           menu = {
+            nvim_lsp = "[LSP]",
             buffer = "[Buffer]",
             luasnip = "[LuaSnip]",
             nvim_lua = "[Lua]",

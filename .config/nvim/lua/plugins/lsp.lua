@@ -1,97 +1,53 @@
 return {
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v4.x',
-    lazy = true,
-    config = false,
-  },
-  {
-    'williamboman/mason.nvim',
-    lazy = false,
-    opts = {},
-  },
-
-  -- Autocompletion
-  {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    "williamboman/mason.nvim",
     config = function()
-      local cmp = require('cmp')
-
-      cmp.setup({
-        sources = {
-          {name = 'nvim_lsp'},
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-d>'] = cmp.mapping.scroll_docs(4),
-        }),
-        snippet = {
-          expand = function(args)
-            vim.snippet.expand(args.body)
-          end,
+      require("mason").setup()
+    end
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "bashls",
+          "lua_ls",
+          "cmake",
+          "clangd",
+          "rust_analyzer",
         },
       })
     end
   },
-
-  -- LSP
   {
-    'neovim/nvim-lspconfig',
-    cmd = {'LspInfo', 'LspInstall', 'LspStart'},
-    event = {'BufReadPre', 'BufNewFile'},
-    dependencies = {
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
-    },
-    init = function()
-      -- Reserve a space in the gutter
-      -- This will avoid an annoying layout shift in the screen
-      vim.opt.signcolumn = 'yes'
-    end,
+    "neovim/nvim-lspconfig",
     config = function()
-      local lsp_defaults = require('lspconfig').util.default_config
-
-      -- Add cmp_nvim_lsp capabilities settings to lspconfig
-      -- This should be executed before you configure any language server
-      lsp_defaults.capabilities = vim.tbl_deep_extend(
-        'force',
-        lsp_defaults.capabilities,
-        require('cmp_nvim_lsp').default_capabilities()
-      )
-
-      -- LspAttach is where you enable features that only work
-      -- if there is a language server active in the file
-      vim.api.nvim_create_autocmd('LspAttach', {
-        desc = 'LSP actions',
-        callback = function(event)
-          local opts = {buffer = event.buf}
-
-          vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-          vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-          vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-          vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-          vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-          vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-          vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-          vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-          vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-          vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-        end,
+      local lspconfig = require("lspconfig")
+      lspconfig.bashls.setup({})
+      lspconfig.clangd.setup({})
+      lspconfig.rust_analyzer.setup({})
+      lspconfig.cmake.setup({})
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
       })
-
-      require('mason-lspconfig').setup({
-        ensure_installed = {},
-        handlers = {
-          -- this first function is the "default handler"
-          -- it applies to every language server without a "custom handler"
-          function(server_name)
-            require('lspconfig')[server_name].setup({})
-          end,
-        }
-      })
+      vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { desc = "Show hover information" })
+      vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', { desc = "Code action" })
+      vim.keymap.set('n', 'gR', '<cmd>Telescope lsp_references<cr>', { desc = "Show references" })
+      vim.keymap.set('n', 'gD', '<cmd>vim.lsp.buf.declaration<cr>', { desc = "Go to declaration" })
+      vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', { desc = "Go to definition" })
+      vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<cr>', { desc = "Go to implementation" })
+      vim.keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', { desc = "Go to type definition" })
+      vim.keymap.set('n', 'g', vim.lsp.buf.signature_help, { desc = "Show signature help" })
+      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = "Smart rename" })
+      vim.keymap.set('n', '<leader>D', "<cmd>Telescope diagnostics bufnr=0<cr>", { desc = "Show diagnostics" })
+      vim.keymap.set('n', 'F', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { desc = "Format" })
+      vim.keymap.set('n', '<leader>rs', ':LspRestart<CR>', { desc = "Restart LSP" })
     end
   }
 }
