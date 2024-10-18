@@ -1,14 +1,15 @@
 return {
-  "nvim-tree/nvim-tree.lua",
-  version = "*",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons",
-    "MunifTanjim/nui.nvim",
+  keys = {
+    { '<leader>fe', '<cmd>NvimTreeFindFileToggle<CR>', desc = 'Toggle Nvim Tree' },
   },
-  config = function()
-    require("nvim-tree").setup({})
-    vim.keymap.set("n", "<leader>fe", "<cmd>NvimTreeFindFileToggle<CR>")
-  end,
+
+  'nvim-tree/nvim-tree.lua',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'nvim-tree/nvim-web-devicons',
+    'MunifTanjim/nui.nvim',
+  },
+
+  opts = {},
 }
 

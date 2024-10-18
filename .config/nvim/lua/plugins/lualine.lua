@@ -1,17 +1,16 @@
 return {
-  "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  'nvim-lualine/lualine.nvim',
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
-    local lualine = require("lualine")
-    local lazy_status = require("lazy.status") -- affiche le nombre de mise à jour plugins lazy dans la barre
+    local lualine = require('lualine')
+    local lazy_status = require('lazy.status')
 
-    -- configuration de lualine
     lualine.setup({
       options = {
         icons_enabled = true,
-        theme = "auto",
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
+        theme = 'auto',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -26,27 +25,27 @@ return {
         },
       },
       sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { { "filename", path = 1 } },
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { { 'filename', path = 1 } },
         lualine_x = {
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
+            color = { fg = '#ff9e64' },
           },
-          { "encoding" },
-          { "fileformat" },
-          { "filetype" },
+          { 'encoding' },
+          { 'fileformat' },
+          { 'filetype' },
         },
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { "filename" },
-        lualine_x = { "location" },
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {},
       },
@@ -57,4 +56,3 @@ return {
     })
   end,
 }
-

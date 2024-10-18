@@ -4,11 +4,20 @@ return
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
     dependencies = {
+      'nvim-telescope/telescope-ui-select.nvim',
       'nvim-lua/plenary.nvim',
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font }
     },
     config = function()
-      require('telescope').setup({})
+      require("telescope").setup({
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown {
+            }
+          }
+        }
+      })
+      require("telescope").load_extension("ui-select")
 
       local builtin = require('telescope.builtin')
 
@@ -18,20 +27,6 @@ return
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
       vim.keymap.set('n', '<leader>cs', builtin.colorscheme, {})
       vim.keymap.set('n', '<leader>tgc', builtin.git_commits, {})
-    end
-  },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    config = function()
-      require("telescope").setup ({
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-            }
-          }
-        }
-      })
-      require("telescope").load_extension("ui-select")
     end
   }
 }
