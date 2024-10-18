@@ -38,3 +38,5 @@ require("lazy").setup({
 })
 
 vim.cmd.colorscheme 'tokyonight'
+vim.cmd('Neotree filesystem reveal left')
+
