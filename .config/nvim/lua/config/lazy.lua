@@ -37,5 +37,6 @@ require("lazy").setup({
   },
 })
 
-vim.cmd.colorscheme 'tokyonight'
+vim.o.termguicolors = true
+vim.cmd.colorscheme 'carbonfox'
 

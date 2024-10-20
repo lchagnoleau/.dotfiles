@@ -4,38 +4,81 @@ live_config_reload = true
 animation = "EaseOutExpo"
 duration = 0
 
+[colors.primary]
+background = "#161616"
+foreground = "#f2f4f8"
+dim_foreground = "#b6b8bb"
+bright_foreground = "#f9fbff"
+
 [colors.cursor]
-cursor = "0xb9b9b9"
-text = "0x101010"
+text = "#f2f4f8"
+cursor = "#b6b8bb"
+
+[colors.vi_mode_cursor]
+text = "#f2f4f8"
+cursor = "#33b1ff"
+
+[colors.search.matches]
+foreground = "#f2f4f8"
+background = "#525253"
+
+[colors.search.focused_match]
+foreground = "#f2f4f8"
+background = "#3ddbd9"
+
+[colors.footer_bar]
+foreground = "#f2f4f8"
+background = "#353535"
+
+[colors.hints.start]
+foreground = "#f2f4f8"
+background = "#3ddbd9"
+
+[colors.hints.end]
+foreground = "#f2f4f8"
+background = "#353535"
+
+[colors.selection]
+text = "#f2f4f8"
+background = "#2a2a2a"
 
 [colors.normal]
-black = "0x1f1f1f"
-red = "0xf71118"
-green = "0x2cc55d"
-yellow = "0xecb90f"
-blue = "0x2a84d2"
-magenta = "0x4e59b7"
-cyan = "0x0f80d5"
-white = "0xd6dae4"
+black = "#282828"
+red = "#ee5396"
+green = "#25be6a"
+yellow = "#08bdba"
+blue = "#78a9ff"
+magenta = "#be95ff"
+cyan = "#33b1ff"
+white = "#dfdfe0"
 
 [colors.bright]
-black = "0xd6dae4"
-red = "0xde342e"
-green = "0x1dd260"
-yellow = "0xf2bd09"
-blue = "0x0f80d5"
-magenta = "0x524fb9"
-cyan = "0x0f7cda"
-white = "0xffffff"
+black = "#484848"
+red = "#f16da6"
+green = "#46c880"
+yellow = "#2dc7c4"
+blue = "#8cb6ff"
+magenta = "#c8a5ff"
+cyan = "#52bdff"
+white = "#e4e4e5"
 
-[colors.primary]
-background = "0x131313"
-foreground = "0xd6dae4"
+[colors.dim]
+black = "#222222"
+red = "#ca4780"
+green = "#1fa25a"
+yellow = "#07a19e"
+blue = "#6690d9"
+magenta = "#a27fd9"
+cyan = "#2b96d9"
+white = "#bebebe"
 
-[cursor]
-blink_interval = 500
-blink_timeout = 5
-unfocused_hollow = false
+[[colors.indexed_colors]]
+index = 16
+color = "#3ddbd9"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#ff7eb6"
 
 [cursor.style]
 blinking = "Off"
@@ -76,3 +119,5 @@ startup_mode = "Maximized"
 x = 4
 y = 4
 
+[env]
+TERM = "xterm-256color"
