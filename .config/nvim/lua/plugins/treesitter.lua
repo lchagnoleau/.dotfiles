@@ -7,25 +7,7 @@ return {
     treesitter.setup({
       highlight = { enable = true },
       indent = { enable = true },
-
-      ensure_installed = {
-        'c',
-        'bash',
-        'dockerfile',
-        'gitignore',
-        'html',
-        'javascript',
-        'json',
-        'lua',
-        'markdown',
-        'markdown_inline',
-        'python',
-        'rst',
-        'rust',
-        'typescript',
-        'vim',
-        'yaml',
-      },
+      auto_install = true,
       incremental_selection = {
         enable = true,
         keymaps = {
