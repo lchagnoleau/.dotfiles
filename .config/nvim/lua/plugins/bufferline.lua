@@ -6,7 +6,7 @@ return {
   opts = {
     options = {
       separator_style = "slant",
-      offsets = { { filetype = "neo-tree", text = "", padding = 1 } },
+      offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
     },
   },
 }

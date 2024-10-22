@@ -1,37 +1,38 @@
-local opt = vim.opt
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
 
-opt.number = true
-opt.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-opt.tabstop = 2
-opt.shiftwidth = 2 
-opt.expandtab = true 
-opt.autoindent = true 
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.autoindent = true
 
-opt.ignorecase = true 
-opt.smartcase = true 
-opt.hlsearch = false
-opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
-opt.cursorline = true 
-opt.scrolloff = 8
+vim.opt.cursorline = true
+vim.opt.scrolloff = 8
 
-opt.termguicolors = true
-opt.updatetime = 50
+vim.opt.termguicolors = true
+vim.opt.updatetime = 50
 
-opt.backspace = "indent,eol,start" 
+vim.opt.backspace = "indent,eol,start"
 
-opt.clipboard = "unnamedplus" 
+vim.opt.clipboard = "unnamedplus"
 
-opt.splitright = true 
-opt.splitbelow = true 
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
-opt.swapfile = false 
+vim.opt.swapfile = false
 
-opt.undofile = true 
+vim.opt.undofile = true
 
-opt.iskeyword:append("-") 
+vim.opt.iskeyword:append("-")
 
-opt.list = true
-opt.listchars:append({ nbsp = "␣", trail = "•", precedes = "«", extends = "»", tab = "> " })
-
+vim.opt.list = true
+vim.opt.listchars:append({ nbsp = "␣", trail = "•", precedes = "«", extends = "»", tab = "> " })
