@@ -16,6 +16,8 @@
   untrack = rm --cache --
   full-clean = clean -ffdx
   chat = rev-parse HEAD
+  fco = "!git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout"
+  glabmr = "!glab mr list | fzf --header 'checkout MR' | awk '{print $(NF)}' | sed 's/[()]//g' | xargs git checkout"
 [core]
   pager = delta
   excludesfile = ~/.gitignore
