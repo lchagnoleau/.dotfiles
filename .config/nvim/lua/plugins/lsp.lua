@@ -18,8 +18,10 @@ return {
         "bashls",
         "lua_ls",
         "rust_analyzer",
+        "pylsp",
 
         "stylua",
+        "clang-format",
         "shellcheck",
       },
     },
@@ -38,7 +40,7 @@ return {
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show Hover information" })
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
-      vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Go to Reference" })
+      vim.keymap.set("n", "<leader>gr", ":Telescope lsp_references<cr>", { desc = "Go to Reference" })
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Open Code Action" })
     end,
   },
