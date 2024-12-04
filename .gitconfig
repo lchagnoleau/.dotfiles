@@ -20,6 +20,7 @@
   chat = rev-parse HEAD
   fco = "!git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout"
   glabmr = "!glab mr list | fzf --header 'checkout MR' | awk '{print $(NF)}' | sed 's/[()]//g' | xargs git checkout"
+  fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
 [core]
   pager = delta
   excludesfile = ~/.gitignore
@@ -51,6 +52,8 @@
   ff = false
 [pull]
   rebase = merges
+[rebase]
+  autosquash = true
 [push]
   followTags = true
 [status]
