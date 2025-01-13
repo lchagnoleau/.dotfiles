@@ -29,6 +29,7 @@ return
       vim.keymap.set('n', '<leader>gsc', builtin.git_commits, { desc = 'Git search commits' })
       vim.keymap.set('n', '<leader>gst', builtin.git_status, { desc = 'Git status' })
       vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Git search branches' })
+      vim.keymap.set('n', '<leader>cs', builtin.colorscheme, { desc = 'Select Colorscheme' })
     end
   }
 }

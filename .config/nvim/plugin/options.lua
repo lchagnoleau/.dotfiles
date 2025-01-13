@@ -21,7 +21,6 @@ vim.opt.incsearch = true
 vim.opt.cursorline = true
 vim.opt.scrolloff = 8
 
-vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
 vim.opt.backspace = "indent,eol,start"
