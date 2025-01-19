@@ -1,3 +1,6 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "extern/gdb-dashboard-svd"]
+	path = extern/gdb-dashboard-svd
+	url = git@github.com:lchagnoleau/gdb-dashboard-svd.git
