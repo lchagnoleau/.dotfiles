@@ -22,6 +22,7 @@ return {
 
         "stylua",
         "clang-format",
+        "yamlfmt",
         "shellcheck",
 
         "cortex-debug",
@@ -56,6 +57,7 @@ return {
         sources = {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.clang_format,
+          null_ls.builtins.formatting.yamlfmt,
           null_ls.builtins.diagnostics.cppcheck,
 
           null_ls.builtins.code_actions.gitsigns,
