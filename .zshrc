@@ -113,6 +113,7 @@ alias ls='lsd'
 alias v='nvim'
 alias f='nvim $(fzf -m --preview="bat --color=always {}")'
 alias nproc="sysctl -n hw.physicalcpu"
+alias ghcs='gh copilot -s,--shell-out suggest'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -124,4 +125,6 @@ source <(fzf --zsh)
 
 export WORKON_HOME=$HOME/.virtualenvs
 source /opt/homebrew/bin/virtualenvwrapper.sh
+
+export SVD_FOLDER="$HOME/git/work/cmsis-svd/data/"
 
