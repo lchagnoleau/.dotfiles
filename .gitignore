@@ -8,3 +8,5 @@ dataset/
 tmp/
 .DS_Store
 .gdbbreakpoints
+.cache/
+compile_commands.json
