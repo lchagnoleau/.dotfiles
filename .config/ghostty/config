@@ -1,0 +1,15 @@
+theme = tokyonight-storm
+
+window-padding-x = 4,4
+scrollback-limit = 10000
+confirm-close-surface = false
+maximize = true
+
+font-size = 14.0
+font-family = Hack Nerd Font Mono
+font-style = Bold
+font-thicken = true
+font-codepoint-map = U+E000-U+F1AF0=Hack Nerd Font
+mouse-scroll-multiplier = 0.5
+
+initial-command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
