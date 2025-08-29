@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting you-should-use)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -191,3 +191,4 @@ export SVD_FOLDER="$HOME/git/work/cmsis-svd/data/"
 export EZA_CONFIG_DIR="$HOME/.config/eza/"
 export XDG_CONFIG_HOME="$HOME/.config/"
 
+source <(COMPLETE=zsh jj)

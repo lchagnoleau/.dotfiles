@@ -24,8 +24,7 @@
 [core]
   pager = delta
   excludesfile = ~/.gitignore
-  editor = vim
-  whitespace = -trailing-space
+  editor = nvim
 [diff]
   mnemonicPrefix = true
   renames = true

@@ -7,3 +7,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@github.com:lchagnoleau/nvim.git
+[submodule ".config/ghostty-shaders"]
+	path = .config/ghostty-shaders
+	url = https://github.com/hackr-sh/ghostty-shaders.git
