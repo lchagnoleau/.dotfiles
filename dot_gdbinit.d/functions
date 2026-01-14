@@ -1,0 +1,37 @@
+define xxd
+    dump binary memory /tmp/dump.bin $arg0 ((char *)$arg0)+$arg1
+    shell xxd -o $arg0 /tmp/dump.bin
+end
+document xxd
+    Runs xxd on a memory ADDR and LENGTH
+    xxd ADDR LENTH
+end
+
+define soft_reset
+    p $msp=*$arg0
+    p $pc=*($arg0 + 4)
+end
+document soft_reset
+    Sets the MSP and PC to the values at the given address
+    soft_reset ADDR
+end
+
+define lb
+    set breakpoint pending on
+    source .gdbbreakpoints
+    echo breakpoints loaded\n
+    set breakpoint pending auto
+end
+document lb
+    Loads breakpoints from .gdbbreakpoints
+    lb
+end
+
+define sb
+    save breakpoints .gdbbreakpoints
+    echo breakpoints saved\n
+end
+document sb
+    Saves breakpoints to .gdbbreakpoints
+    sb
+end

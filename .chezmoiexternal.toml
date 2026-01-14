@@ -1,0 +1,27 @@
+[".antidote"]
+type = "archive"
+url = "https://github.com/mattmc3/antidote/archive/master.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".tmux/plugins/tpm"]
+type = "git-repo"
+url = "https://github.com/tmux-plugins/tpm"
+refreshPeriod = "168h"
+
+[".config/nvim"]
+type = "git-repo"
+url = "https://github.com/lchagnoleau/nvim"
+clone.args = ["-b", "lazyvim"]
+refreshPeriod = "168h"
+
+[".gdb/gdb-dashboard"]
+type = "git-repo"
+url = "https://github.com/cyrus-and/gdb-dashboard"
+refreshPeriod = "168h"
+
+[".gdb/gdb-dashboard-svd"]
+type = "git-repo"
+url = "https://github.com/lchagnoleau/gdb-dashboard-svd"
+refreshPeriod = "168h"

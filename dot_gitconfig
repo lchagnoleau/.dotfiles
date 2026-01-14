@@ -1,0 +1,82 @@
+[includeIf "gitdir:~/workspace/perso/"]
+  path = ~/workspace/perso/.gitconfig.perso
+[includeIf "gitdir:~/workspace/work/"]
+  path = ~/workspace/work/.gitconfig.work
+[includeIf "gitdir:~/git/perso/"]
+  path = ~/git/perso/.gitconfig.perso
+[includeIf "gitdir:~/git/work/"]
+  path = ~/git/work/.gitconfig.work
+[color]
+  ui = auto
+[alias]
+  aliases = config --get-regexp ^alias
+  ci = commit
+  co = checkout
+  st = status --short
+  br = branch
+  lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+  oops = commit --amend --no-edit
+  yolo = push --force-with-lease
+  reword = commit --amend
+  unstage = reset --
+  untrack = rm --cache --
+  full-clean = clean -ffdx
+  chat = rev-parse HEAD
+  fco = "!git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout"
+  glabmr = "!glab mr list | fzf --header 'checkout MR' | awk '{print $(NF)}' | sed 's/[()]//g' | xargs git checkout"
+  fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+[core]
+  pager = delta
+  excludesfile = ~/.gitignore
+  editor = nvim
+[diff]
+  mnemonicPrefix = true
+  renames = true
+  wordRegex = .
+  submodule = log
+  colorMoved = default
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+[delta]
+  navigate = true    # use n and N to move between diff sections
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
+[grep]
+  break = true
+  heading = true
+  lineNumber = true
+  extendedRegexp = true
+[log]
+  abbrevCommit = true
+  follow = true
+  decorate = false
+  ff = false
+[pull]
+  rebase = merges
+[rebase]
+  autosquash = true
+[push]
+  followTags = true
+[status]
+  submoduleSummary = true
+  showUntrackedFiles = all
+[color "branch"]
+  upstream = cyan
+[tag]
+  sort = version:refname
+[versionsort]
+  prereleaseSuffix = -pre
+  prereleaseSuffix = .pre
+  prereleaseSuffix = -beta
+  prereleaseSuffix = .beta
+  prereleaseSuffix = -rc
+  prereleaseSuffix = .rc
+[user]
+  name = Loïc Chagnoleau
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
